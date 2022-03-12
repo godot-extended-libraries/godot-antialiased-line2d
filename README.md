@@ -33,6 +33,7 @@ so you can see the line being antialiased in the editor.
   Only the long sides are antialiased. In practice, this still looks quite good
   most of the time. You can adjust the caps or use variable width to make
   aliasing on the ends less noticeable.
+- Thin lines (1-3 pixels) won't be antialiased well (if at all).
 - For lines with highly variable width and sharp corners, antialiasing quality
   may not be ideal on some parts of the line due to how Godot generates UVs
   for Line2D.

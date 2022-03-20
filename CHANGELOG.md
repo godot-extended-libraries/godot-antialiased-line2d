@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2022-03-21
+
 ### Added
 
 - New AntialiasedPolygon2D helper node.
@@ -22,4 +24,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial versioned release.
 
-[Unreleased]: https://github.com/godot-extended-libraries/godot-antialiased-line2d/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/godot-extended-libraries/godot-antialiased-line2d/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/godot-extended-libraries/godot-antialiased-line2d/compare/v1.0.0...v1.1.0

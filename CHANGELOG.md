@@ -14,6 +14,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     regardless of whether HDR is enabled.
   - Keeps a Polygon2D and an internal Line2D node with an antialiased texture
     in sync.
+- New AntialiasedRegularPolygon2D helper node.
+  - Can be used to draw circles, hexagons, or any other regular polygon.
+  - The X/Y size and angle coverage can be adjusted.
 
 ## 1.0.0 - 2022-03-12
 

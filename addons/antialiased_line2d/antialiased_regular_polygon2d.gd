@@ -1,8 +1,12 @@
 # This is a convenience node that automatically synchronizes an AntialiasedLine2D
-# with a Polygon2D.
+# with a Polygon2D, while also generating a regular Polygon2D shape (hexagon, octagon, …).
 tool
-class_name AntialiasedPolygon2D, "antialiased_polygon2d.svg"
+class_name AntialiasedRegularPolygon2D, "antialiased_regular_polygon2d.svg"
 extends Polygon2D
+
+export var size := Vector2(64, 64) setget set_size
+export(int, 3, 128) var sides := 32 setget set_sides
+export(float, 0.0, 360.0) var angle_degrees := 360.0 setget set_angle_degrees
 
 export var stroke_color := Color(0.4, 0.5, 1.0) setget set_stroke_color
 export(float, 0.0, 1000.0) var stroke_width := 10.0 setget set_stroke_width
@@ -19,11 +23,7 @@ func _ready() -> void:
 	# Make the closed polyline look more closed.
 	line_2d.begin_cap_mode = Line2D.LINE_CAP_ROUND
 
-	# Close the polygon drawn by the line by adding the first point to the end.
-	var polygon_line := polygon
-	if polygon.size() >= 1:
-		polygon_line.push_back(polygon[0])
-	line_2d.points = polygon_line
+	update_points()
 
 	add_child(line_2d)
 
@@ -36,6 +36,36 @@ func _set(property: String, value) -> bool:
 		line_2d.points = polygon_line
 
 	return false
+
+
+func update_points() -> void:
+	var points := PoolVector2Array()
+	for side in sides:
+		points.push_back(Vector2(0, -1).rotated(side / float(sides) * deg2rad(angle_degrees)) * size * 0.5)
+	if not is_equal_approx(angle_degrees, 360.0):
+		points.push_back(Vector2.ZERO)
+	polygon = points
+
+	# Force an update of the Line2D here to prevent it from getting out of sync.
+	# Close the polygon drawn by the line by adding the first point to the end.
+	var polygon_line := polygon
+	polygon_line.push_back(polygon[0])
+	line_2d.points = polygon_line
+
+
+func set_size(p_size: Vector2) -> void:
+	size = p_size
+	update_points()
+
+
+func set_sides(p_sides: int) -> void:
+	sides = p_sides
+	update_points()
+
+
+func set_angle_degrees(p_angle_degrees: float) -> void:
+	angle_degrees = p_angle_degrees
+	update_points()
 
 
 func set_stroke_color(p_stroke_color: Color) -> void:

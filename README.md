@@ -58,7 +58,7 @@ so you can see the line being antialiased in the editor.
 - Navigate to the **AssetLib** tab at the top of the editor and search for
   "antialiased line2d".
 - Install the
-  [*Antialiased Line2D*](https://godotengine.org/asset-library/asset/729)
+  [*Antialiased Line2D*](https://godotengine.org/asset-library/asset/1266)
   plugin. Keep all files checked during installation.
 - In the editor, open **Project > Project Settings**, go to **Plugins**
   and enable the **Antialiased Line2D** plugin.

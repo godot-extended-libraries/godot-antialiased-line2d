@@ -2,8 +2,8 @@
 
 ![Screenshot](https://raw.githubusercontent.com/Calinou/media/master/godot-antialiased-line2d-demo/screenshot.png)
 
-This add-on provides higher-quality, more portable antialiased Line2D drawing
-compared to the default Godot implementation.
+**Higher-quality, more portable antialiased Line2D and Polygon2D drawing compared
+to the default Godot implementation.**
 
 This repository only contains the add-on. See
 [godot-extended-libraries/godot-antialiased-line2d-demo](https://github.com/godot-extended-libraries/godot-antialiased-line2d-demo)
@@ -16,6 +16,10 @@ for the demonstration project.
 - Supports lines of any width (constant or variable over a curve).
   - Lines with a thickness greater than 256 pixels may appear slightly blurry,
     but will still render correctly.
+- Features an AntialiasedPolygon2D helper node to draw 2D antialiased polygons,
+  keeping the polygon and line in sync.
+  - The stroke color can be set to the same color to draw an antialiased polygon
+    that looks borderless, or to a different color.
 - Supports Camera2D zoom and multiple resolutions.
 - Works with both the GLES3 and GLES2 renderers.
 - Works on desktop platforms, Android, iOS and HTML5.
@@ -37,6 +41,8 @@ so you can see the line being antialiased in the editor.
 - For lines with highly variable width and sharp corners, antialiasing quality
   may not be ideal on some parts of the line due to how Godot generates UVs
   for Line2D.
+- AntialiasedPolygon2D will not fully antialias the polygon's edges if its stroke
+  color is not fully opaque.
 
 ## Installation
 
@@ -72,18 +78,30 @@ if you do not have Git installed.
 
 ## Usage
 
+### Lines
+
 - After enabling the plugin, add an AntialiasedLine2D node to your scene tree dock.
   - You can also replace existing Line2D nodes by right-clicking them in the scene
     tree dock then using **Change Type** in the context menu.
 - Your line will use the procedurally generated antialiasing texture.
   That's all there is to it :slightly_smiling_face:
 
-**Note:** Do not enable the Line2D built-in **Antialiased** property, as it is
-unnecessary with this add-on; it will only worsen the antialiasing quality.
-
 **Note:** The **Texture** and **Tile Mode** properties are automatically set by
 the add-on. Changes to these properties will be lost when running the project
 or reloading the scene in the editor.
+
+### Polygons
+
+- After enabling the plugin, add an AntialiasedPolygon2D node to your scene tree dock.
+  - You can also replace existing Polygon2D nodes by right-clicking them in the scene
+    tree dock then using **Change Type** in the context menu.
+- Your polygon will use the procedurally generated antialiasing texture on the edges.
+  To make an antialiased 2D polygon that *looks* borderless, set the **Stroke Color**
+  property to be the same color as the Polygon2D's fill color.
+  That's all there is to it :slightly_smiling_face:
+
+**Note:** Do not enable the Line2D or Polygon2D built-in **Antialiased** property,
+as it is unnecessary with this add-on; it will only worsen the antialiasing quality.
 
 ## How it works behind the scenes
 
@@ -95,6 +113,10 @@ or reloading the scene in the editor.
 3. The texture is loaded in a Line2D's texture slot. The polygon or UV generation
    algorithm remains unchanged.
 4. The hardware automatically determines which mipmap to use, making the rendering very fast.
+5. For AntialiasedPolygon2D, it adds a Line2D as a child node to the Polygon2D
+   and assigns the antialiased line texture to it. The line is automatically kept in
+   sync with the polygon's points, with an additional point added so it forms a
+   closed polyline.
 
 ## License
 

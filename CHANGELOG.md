@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- New AntialiasedPolygon2D helper node.
+  - Can be used to draw 2D antialiased polygons on any platform and rendering backend,
+    regardless of whether HDR is enabled.
+  - Keeps a Polygon2D and an internal Line2D node with an antialiased texture
+    in sync.
+
 ## 1.0.0 - 2022-03-12
 
 - Initial versioned release.

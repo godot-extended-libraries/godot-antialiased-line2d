@@ -19,8 +19,8 @@ func _ready() -> void:
 	if polygon.size() >= 1:
 		line_2d.points = AntialiasedLine2D.construct_closed_line(polygon)
 	add_child(line_2d)
-	
-	
+
+
 func _set(property: String, value) -> bool:
 	if property == "polygon":
 		line_2d.points = AntialiasedLine2D.construct_closed_line(polygon)

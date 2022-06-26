@@ -16,25 +16,14 @@ var line_2d := Line2D.new()
 func _ready() -> void:
 	line_2d.texture = AntialiasedLine2DTexture.texture
 	line_2d.texture_mode = Line2D.LINE_TEXTURE_TILE
-	# Make the closed polyline look more closed.
-	line_2d.begin_cap_mode = Line2D.LINE_CAP_ROUND
-
-	# Close the polygon drawn by the line by adding the first point to the end.
-	var polygon_line := polygon
 	if polygon.size() >= 1:
-		polygon_line.push_back(polygon[0])
-	line_2d.points = polygon_line
-
+		line_2d.points = AntialiasedLine2D.construct_closed_line(polygon)
 	add_child(line_2d)
 
 
 func _set(property: String, value) -> bool:
 	if property == "polygon":
-		# Close the polygon drawn by the line by adding the first point to the end.
-		var polygon_line := polygon
-		polygon_line.push_back(polygon[0])
-		line_2d.points = polygon_line
-
+		line_2d.points = AntialiasedLine2D.construct_closed_line(polygon)
 	return false
 
 

@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.1] - 2022-06-26
+
+### Fixed
+
+- [Polygon border line is now seamless, hiding visibly rounded ends.](https://github.com/godot-extended-libraries/godot-antialiased-line2d/pull/4)
+
 ## [1.1.0] - 2022-03-21
 
 ### Added
@@ -24,5 +30,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial versioned release.
 
-[Unreleased]: https://github.com/godot-extended-libraries/godot-antialiased-line2d/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/godot-extended-libraries/godot-antialiased-line2d/compare/v1.1.1...HEAD
+[1.1.1]: https://github.com/godot-extended-libraries/godot-antialiased-line2d/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/godot-extended-libraries/godot-antialiased-line2d/compare/v1.0.0...v1.1.0

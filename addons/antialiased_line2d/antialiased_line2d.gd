@@ -11,7 +11,7 @@ func _ready() -> void:
 static func construct_closed_line(p_polygon: PoolVector2Array) -> PoolVector2Array:
 	var end_point: Vector2 = p_polygon[p_polygon.size() - 1]
 	var distance: float = end_point.distance_to(p_polygon[0]) # distance to start point
-	var bridge_point: Vector2 = end_point.move_toward(p_polygon[0], distance / 2.0)
+	var bridge_point: Vector2 = end_point.move_toward(p_polygon[0], distance * 0.5)
 	# Close the polygon drawn by the line by adding superimposed bridge points between the start and end points.
 	var polygon_line := p_polygon
 	polygon_line.push_back(bridge_point)

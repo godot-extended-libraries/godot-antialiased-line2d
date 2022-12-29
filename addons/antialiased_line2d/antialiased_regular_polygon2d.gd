@@ -26,7 +26,7 @@ func _ready() -> void:
 
 func _set(property: String, value) -> bool:
 	if property == "polygon":
-		line_2d.points = AntialiasedLine2D.construct_closed_line(polygon)
+		line_2d.points = AntialiasedLine2D.construct_closed_line(value)
 	return false
 
 

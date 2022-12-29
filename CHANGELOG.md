@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- [Fix AntialiasedPolygon2D and AntialiasedRegularPolygon2D setters not working.](https://github.com/godot-extended-libraries/godot-antialiased-line2d/issues/6)
+
 ## [1.1.1] - 2022-06-26
 
 ### Fixed

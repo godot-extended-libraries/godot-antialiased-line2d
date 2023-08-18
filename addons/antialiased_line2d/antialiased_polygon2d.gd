@@ -1,29 +1,29 @@
 # This is a convenience node that automatically synchronizes an AntialiasedLine2D
 # with a Polygon2D.
-tool
-class_name AntialiasedPolygon2D, "antialiased_polygon2d.svg"
+@tool
+class_name AntialiasedPolygon2D
 extends Polygon2D
 
-export var stroke_color := Color(0.4, 0.5, 1.0) setget set_stroke_color
-export(float, 0.0, 1000.0) var stroke_width := 10.0 setget set_stroke_width
-export(int, "Sharp", "Bevel", "Round") var stroke_joint_mode := Line2D.LINE_JOINT_SHARP setget set_stroke_joint_mode
-export(float, 0.0, 1000.0) var stroke_sharp_limit := 2.0 setget set_stroke_sharp_limit
-export(int, 1, 32) var stroke_round_precision := 8 setget set_stroke_round_precision
+@export var stroke_color := Color(0.4, 0.5, 1.0): set = set_stroke_color
+@export_range(0.0, 1000.0) var stroke_width:float = 10.0: set = set_stroke_width
+@export var stroke_joint_mode:Line2D.LineJointMode = Line2D.LINE_JOINT_SHARP: set = set_stroke_joint_mode
+@export_range(0.0, 1000.0) var stroke_sharp_limit:float = 2.0: set = set_stroke_sharp_limit
+@export_range(1, 32) var stroke_round_precision: int = 8: set = set_stroke_round_precision
 
 var line_2d := Line2D.new()
-
 
 func _ready() -> void:
 	line_2d.texture = AntialiasedLine2DTexture.texture
 	line_2d.texture_mode = Line2D.LINE_TEXTURE_TILE
+	line_2d.texture_filter = TextureFilter.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	if polygon.size() >= 1:
 		line_2d.points = AntialiasedLine2D.construct_closed_line(polygon)
 	add_child(line_2d)
 
 
-func _set(property: String, value) -> bool:
+func _set(property, value) -> bool:
 	if property == "polygon":
-		line_2d.points = AntialiasedLine2D.construct_closed_line(value)
+		line_2d.points = AntialiasedLine2D.construct_closed_line(polygon)
 	return false
 
 
@@ -37,7 +37,7 @@ func set_stroke_width(p_stroke_width: float) -> void:
 	line_2d.width = stroke_width
 
 
-func set_stroke_joint_mode(p_stroke_joint_mode: int) -> void:
+func set_stroke_joint_mode(p_stroke_joint_mode: Line2D.LineJointMode) -> void:
 	stroke_joint_mode = p_stroke_joint_mode
 	line_2d.joint_mode = stroke_joint_mode
 

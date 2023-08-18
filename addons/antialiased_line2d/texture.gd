@@ -1,4 +1,4 @@
-tool
+@tool
 extends Node
 
 # Generates the antialiased Line2D texture that will be used by the various nodes.
@@ -6,14 +6,13 @@ extends Node
 # for every AntialiasedLine2D node. This generation can take several dozen milliseconds,
 # so it would cause stuttering if performed during gameplay.
 
-var texture := ImageTexture.new()
-
+var texture:ImageTexture = null
 
 func _ready() -> void:
 	# Generate a texture with custom mipmaps (1-pixel feather on the top and bottom sides).
 	# The texture must be square for mipmaps to work correctly. The texture's in-memory size is still
 	# pretty low (less than 200 KB), so this should not cause any performance problems.
-	var data := PoolByteArray()
+	var data := PackedByteArray()
 	for mipmap in [256, 128, 64, 32, 16, 8, 4, 2, 1]:
 		for y in mipmap:
 			for x in mipmap:
@@ -42,6 +41,5 @@ func _ready() -> void:
 					# Average of 0 and 255 (there is only one pixel).
 					data.push_back(128)
 
-	var image := Image.new()
-	image.create_from_data(256, 256, true, Image.FORMAT_LA8, data)
-	texture.create_from_image(image)
+	var image = Image.create_from_data(256, 256, true, Image.FORMAT_LA8, data)
+	texture = ImageTexture.create_from_image(image)

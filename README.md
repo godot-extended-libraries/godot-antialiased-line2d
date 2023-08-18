@@ -1,4 +1,4 @@
-# Antialiased Line2D add-on for Godot 3.x
+# Antialiased Line2D add-on for Godot 4.x
 
 ![Screenshot](https://raw.githubusercontent.com/Calinou/media/master/godot-antialiased-line2d-demo/screenshot.png)
 

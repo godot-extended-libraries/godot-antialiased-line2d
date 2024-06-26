@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0] - 2024-06-26
+
+### Changed
+
+- Updated add-on for Godot 4.2.2.
+- Anisotropic filtering is now used to improve quality.
+  - To ensure the best possible quality, it's recommended to set the
+    **Anisotropic Filtering Level** project setting to 16× (default is 4×).
+
 ### Fixed
 
 - [Fix AntialiasedPolygon2D and AntialiasedRegularPolygon2D setters not working.](https://github.com/godot-extended-libraries/godot-antialiased-line2d/issues/6)
@@ -34,6 +43,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial versioned release.
 
-[Unreleased]: https://github.com/godot-extended-libraries/godot-antialiased-line2d/compare/v1.1.1...HEAD
-[1.1.1]: https://github.com/godot-extended-libraries/godot-antialiased-line2d/compare/v1.1.0...v1.1.1
-[1.1.0]: https://github.com/godot-extended-libraries/godot-antialiased-line2d/compare/v1.0.0...v1.1.0
+[Unreleased]: https://github.com/godot-extended-libraries/godot-antialiased-line2d/compare/v1.2.0...HEAD
+[1.2.0]: https://github.com/godot-extended-libraries/godot-antialiased-line2d/compare/1.1.1...v1.2.0
+[1.1.1]: https://github.com/godot-extended-libraries/godot-antialiased-line2d/compare/v1.1.0...1.1.1
+[1.1.0]: https://github.com/godot-extended-libraries/godot-antialiased-line2d/compare/1.0.0...v1.1.0

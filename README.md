@@ -1,4 +1,4 @@
-# Antialiased Line2D add-on for Godot 3.x
+# Antialiased Line2D add-on for Godot 4.x
 
 ![Screenshot](https://raw.githubusercontent.com/Calinou/media/master/godot-antialiased-line2d-demo/screenshot.png)
 
@@ -84,6 +84,11 @@ if you do not have Git installed.
 
 ## Usage
 
+> [!TIP]
+>
+> To improve rendering quality, set the **Anisotropic Filtering Level** project setting
+> to 16× (instead of the default 4×). This particularly helps for narrow or curved lines.
+
 ### Lines
 
 - After enabling the plugin, add an *AntialiasedLine2D* node to your scene tree dock.
@@ -116,9 +121,6 @@ or reloading the scene in the editor.
   property to be the same color as the Polygon2D's fill color.
   That's all there is to it :slightly_smiling_face:
 
-**Note:** Do not enable the Line2D or Polygon2D built-in **Antialiased** property,
-as it is unnecessary with this add-on; it will only worsen the antialiasing quality.
-
 ## How it works behind the scenes
 
 1. A texture with custom mipmaps is procedurally generated in GDScript to handle
@@ -136,7 +138,7 @@ as it is unnecessary with this add-on; it will only worsen the antialiasing qual
 
 ## License
 
-Copyright © 2022 Hugo Locurcio and contributors
+Copyright © 2022-present Hugo Locurcio and contributors
 
 Unless otherwise specified, files in this repository are licensed under the
 MIT license. See [LICENSE.md](LICENSE.md) for more information.

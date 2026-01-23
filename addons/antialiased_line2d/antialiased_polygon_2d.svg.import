@@ -2,22 +2,24 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://guodfckewtpv"
-path="res://.godot/imported/antialiased_line2d.svg-9243613cd101e058db6c37ff468932c4.ctex"
+uid="uid://bkfc7y0qnfi4a"
+path="res://.godot/imported/antialiased_polygon_2d.svg-551511e1467fb80a5d4a598652644318.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/antialiased_line2d/antialiased_line2d.svg"
-dest_files=["res://.godot/imported/antialiased_line2d.svg-9243613cd101e058db6c37ff468932c4.ctex"]
+source_file="res://addons/antialiased_line2d/antialiased_polygon_2d.svg"
+dest_files=["res://.godot/imported/antialiased_polygon_2d.svg-551511e1467fb80a5d4a598652644318.ctex"]
 
 [params]
 
 compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
@@ -25,6 +27,10 @@ mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
